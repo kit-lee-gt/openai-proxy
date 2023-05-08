@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  openai-proxy:
+    build:
+      context: .
+    env_file:
+      - .env
+    environment:
+      - PORT=3000
+    ports:
+      - 8080:$PORT

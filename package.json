@@ -1,0 +1,33 @@
+{
+  "name": "openai-proxy",
+  "version": "1.0.0",
+  "description": "OpenAI API proxy",
+  "main": "dist/main.js",
+  "scripts": {
+    "dev": "ts-node src/main.ts",
+    "start": "node dist/main.js",
+    "docker": "docker-compose up",
+    "build": "tsc"
+  },
+  "keywords": [
+    "openai"
+  ],
+  "author": "GT Web Team",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/cors": "^2.8.13",
+    "@types/express": "^4.17.17",
+    "@types/koa": "^2.13.6",
+    "@types/morgan": "^1.9.4",
+    "@types/node": "^18.16.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "http-proxy-middleware": "^2.0.6",
+    "morgan": "^1.10.0"
+  }
+}
