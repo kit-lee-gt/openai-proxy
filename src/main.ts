@@ -33,7 +33,7 @@ if (OPENAI_ORGANIZATION_ID) {
 
 app.use(
   createProxyMiddleware({
-    secure: false,
+    secure: true,
     target: OPENAI_API_HOST,
     changeOrigin: true,
     headers
