@@ -6,7 +6,11 @@ import { OPENAI_API_HOST, OPENAI_API_KEY, OPENAI_ORGANIZATION_ID, PORT, WHITELIS
 
 const app = express();
 
-app.use(cors());
+app.use('*', cors({
+  origin: (origin, callback) => {
+    callback(null, true);
+  }
+}));
 app.use(morgan('short'));
 
 app.use((req, res, next) => {
@@ -16,11 +20,17 @@ app.use((req, res, next) => {
   res.status(404).end();
 });
 
-/* TODO implement authorization */
 // app.use((req, res, next) => {
-//   const ipAddress = req.ip;
-//   console.info('ipAddress', ipAddress);
-//   next();
+//   console.info(req.ip);
+//   const whitelist = [
+//     '103.6.176.130',
+//     '::ffff:127.0.0.1',
+//     '::1'
+//   ];
+//   if (whitelist.indexOf(req.ip) >= 0) {
+//     return next();
+//   }
+//   res.status(401).end();
 // });
 
 const headers: Record<string, string> = {
