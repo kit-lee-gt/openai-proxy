@@ -31,6 +31,10 @@ if (OPENAI_ORGANIZATION_ID) {
   headers['OpenAI-Organization'] = OPENAI_ORGANIZATION_ID;
 }
 
+app.use('/', (req, res) => {
+  return res.status(200).end();
+});
+
 app.use(
   createProxyMiddleware({
     secure: true,

@@ -18,6 +18,7 @@ export const OPENAI_API_KEY = process.env.OPENAI_API_KEY!;
 export const OPENAI_ORGANIZATION_ID = process.env.OPENAI_ORGANIZATION_ID;
 
 export const WHITELIST_API_ENDPOINTS = [
+  '/',
   '/v1/models',
   '/v1/chat/completions'
 ];
