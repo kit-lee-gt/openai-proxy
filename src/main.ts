@@ -31,18 +31,16 @@ if (OPENAI_ORGANIZATION_ID) {
   headers['OpenAI-Organization'] = OPENAI_ORGANIZATION_ID;
 }
 
+app.use('/v1', createProxyMiddleware({
+  secure: true,
+  target: OPENAI_API_HOST,
+  changeOrigin: true,
+  headers
+}));
+
 app.use('/', (req, res) => {
   return res.status(200).end();
 });
-
-app.use(
-  createProxyMiddleware({
-    secure: true,
-    target: OPENAI_API_HOST,
-    changeOrigin: true,
-    headers
-  })
-);
 
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
